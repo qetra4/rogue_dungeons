@@ -28,7 +28,7 @@ $(document).ready(function() {
     });
 
     function updateHeroPosition(newX, newY) {
-        if (newX >= 0 && newX < WIDTH && newY >= 0 && newY < HEIGHT && map[newY][newX].type !== 'wall') {
+        if (newX >= 0 && newX < WIDTH && newY >= 0 && newY < HEIGHT && map[newY][newX].type !== 'wall' && map[newY][newX].type !== 'enemy') {
             if (map[newY][newX].type === 'health-potion') {
                 heroHealth = 100;
                 console.log(`Hero's health restored. Current health: ${heroHealth}`);
