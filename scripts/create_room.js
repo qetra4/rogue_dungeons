@@ -44,9 +44,11 @@ function isRoomAreaValid(x, y, width, height) {
 function generateRooms() {
     const numRooms = Math.floor(Math.random() * 6) + 5;
     let roomsCreated = 0;
+    let attempts = 0;
+    const maxAttempts = 100;
     window.rooms = [];
 
-    while (roomsCreated < numRooms) {
+    while (roomsCreated < numRooms && attempts < maxAttempts) {
         let roomWidth = Math.floor(Math.random() * 6) + 3; 
         let roomHeight = Math.floor(Math.random() * 6) + 3;
         let x = Math.floor(Math.random() * (WIDTH - roomWidth - 4)) + 2;
@@ -61,6 +63,11 @@ function generateRooms() {
             rooms.push({ x, y, width: roomWidth, height: roomHeight });
             roomsCreated++;
         }
+        attempts++;
+    }
+    // Условие ниже пригождается где-то 1 раз к 30, если комант получилось много и они законфликтовали
+    if (roomsCreated < numRooms) {
+        console.warn(`Не удалось создать все комнаты. Создано ${roomsCreated} из ${numRooms}`);
     }
 }
 
