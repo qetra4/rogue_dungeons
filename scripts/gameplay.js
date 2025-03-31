@@ -34,7 +34,6 @@ $(document).ready(function() {
                 console.log(`Hero's health restored. Current health: ${heroHealth}`);
                 map[newY][newX].type = 'empty'; 
             }
-
             if (map[newY][newX].type === 'sword') {
                 heroAttackPower += 50; 
                 console.log(`Hero's attack power increased. Current attack power: ${heroAttackPower}`);
@@ -44,7 +43,6 @@ $(document).ready(function() {
             heroPosition.x = newX;
             heroPosition.y = newY;
             map[heroPosition.y][heroPosition.x].type = 'person';
-            renderMap();
             moveEnemies(); 
         }
     }
@@ -194,7 +192,6 @@ $(document).ready(function() {
     document.addEventListener('mapReady', function() {
         if (window.initialMap) {
             initializeMap(window.initialMap);
-        } else {
         }
     });
 });

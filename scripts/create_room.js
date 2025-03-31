@@ -46,7 +46,7 @@ function generateRooms() {
     let roomsCreated = 0;
     let attempts = 0;
     const maxAttempts = 100;
-    window.rooms = [];
+    let rooms = window.rooms = [];
 
     while (roomsCreated < numRooms && attempts < maxAttempts) {
         let roomWidth = Math.floor(Math.random() * 6) + 3; 
@@ -76,7 +76,6 @@ function generatePassages() {
     const numVerticalPassages = Math.floor(Math.random() * 3) + 3;
     let horizontalPassageCount = 0;
     let verticalPassageCount = 0;
-    let rooms = window.rooms
 
     for (let i = 0; i < rooms.length; i++) {
         const room = rooms[i];
@@ -216,7 +215,7 @@ function placeEnemies(count) {
 
 function renderMap() {
     field.innerHTML = '';
-    window.map = map
+    window.map = map;
     for (let y = 0; y < HEIGHT; y++) {
         for (let x = 0; x < WIDTH; x++) {
             let tile = document.createElement('div');
